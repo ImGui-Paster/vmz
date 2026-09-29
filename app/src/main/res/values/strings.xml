@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BlackBox</string>
+    <string name="choose">Choose</string>
+    <string name="choose_app">Choose App</string>
+    <string name="installed_app">Installed App</string>
+    <string name="installed_module">Installed Module</string>
+    <string name="empty_empty">Empty</string>
+    <string name="filter">Filter</string>
+    <string name="open_source_path">Open Source</string>
+    <string name="xp_setting">Xposed Setting</string>
+    <string name="tg_group">Telegram Group</string>
+    <string name="fake_location">Fake Location(Preview)</string>
+    <string name="real_location">Real Location</string>
+    <string name="set_location">Set Fake Location Successfully:%s-%s</string>
+    <string name="close_fake_location">Disable FakeLocation</string>
+    <string name="close_app_fake_location">Disable FakeLocation for %s</string>
+    <string name="close_fake_location_success">Disable FakeLocation for %s Successfully</string>
+    <string name="setting">Setting</string>
+    <string name="jump_module">Go to Module Manager</string>
+    <string name="module_setting">Module Manager</string>
+    <string name="enable_xposed">Enable Xposed Framework</string>
+    <string name="hider">Hide</string>
+    <string name="hide_root">Hide Root</string>
+    <string name="hide_xposed">Hide Xposed</string>
+    <string name="userRemark">User Remark</string>
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
+    <string name="permission_setting">Setting</string>
+    <string name="no_reminders">No Reminders</string>
+    <string name="app_stop">Stop Running</string>
+    <string name="app_stop_hint">Do you want to stop %s forcibly?</string>
+    <string name="is_stop">%s is Stopped</string>
+    <string name="app_clear">Clear Data</string>
+    <string name="app_clear_hint">Clear Data for %s?</string>
+    <string name="app_remove">Uninstall App</string>
+    <string name="app_shortcut">Create Shortcut</string>
+    <string name="shortcut_name">Shortcut Name</string>
+    <string name="try_add_shortcut">Try Added To Desktop</string>
+    <string name="add_shortcut_fail_msg">If the addition fails, please go to system settings and open the permission of "create desktop shortcut" for BlackBox</string>
+    <string name="install_success">Installed Successfully</string>
+    <string name="install_fail">Installed Failed: %s</string>
+    <string name="install_fail_no_msg">Installed Failed</string>
+    <string name="uninstall_success">Uninstalled Successfully</string>
+    <string name="uninstall_fail">Uninstalled Failed</string>
+    <string name="uninstall_app">Uninstall App</string>
+    <string name="uninstall_app_hint">Uninstall %s, and relevant data will be cleared after uninstallation?</string>
+    <string name="uninstall_module">Uninstall Module</string>
+    <string name="uninstall_module_hint">Do you want to uninstall this module? It will no longer work after uninstallation?</string>
+    <string name="remove_success">Removed Successfully</string>
+    <string name="clear_success">Cleared Successfully</string>
+    <string name="start_fail">Launched Failed</string>
+    <string name="start_in_outside">Start module in outside</string>
+    <string name="restart_module">Restart app to apply change</string>
+    <string name="cannot_create_shortcut">This desktop does not support creating shortcuts</string>
+    <string name="uninstall_module_toast">Please uninstall the xposed module in the Module Manager</string>
+    <string name="other">Others</string>
+    <string name="daemon_enable">Daemon</string>
+    <string name="use_vpn_network">Use VPN Network</string>
+    <string name="use_vpn_network_summary">Route traffic through VPN for sandboxed apps (may improve network access)</string>
+    <string name="disable_flag_secure">Disable Flag Secure</string>
+    <string name="disable_flag_secure_summary">Allow screenshots and screen recording in apps</string>
+    <string name="gms_manager">GMS Manager</string>
+    <string name="jump_gms">Go to Gms Manager</string>
+    <string name="enable_gms">Enable Service</string>
+    <string name="enable_gms_hint">Opening Google services can make youtube and other software that strongly rely on Google play services run normally.</string>
+    <string name="disable_gms">Disable Service</string>
+    <string name="disable_gms_hint">Clear the current Google service environment? Google service data will be cleared.</string>
+    <string name="no_gms">Currently, there is no Google service environment on mobile phones.</string>
+
+    <!-- Root Manager (per-app root visibility / DenyList) -->
+    <string name="root_manager">Root Manager</string>
+    <string name="root_manager_summary">Choose which apps see emulated root and which get it hidden (DenyList)</string>
+    <string name="root_enabled_toast">Root enabled for app (restart app to apply)</string>
+    <string name="root_hidden_toast">Root hidden for app (restart app to apply)</string>
+    <string name="root_item_suffix">%1$s • User %2$d</string>
+    <string name="root_item_gg_suffix">%1$s • User %2$d • GameGuardian</string>
+    <string name="root_enable_title">Enable Root</string>
+    <string name="root_enable_hint">Emulated root (su, uid 0, virtual rootfs) will be visible to "%1$s" inside the sandbox. No real device rooting is performed.</string>
+    <string name="root_disable_title">Hide Root (DenyList)</string>
+    <string name="root_disable_hint">Root will be fully hidden from "%1$s": the app will see a clean non-root environment.</string>
+    <string name="root_list_empty">No virtual apps installed yet</string>
+    <string name="gg_overlay_title">Overlay permission</string>
+    <string name="gg_overlay_hint">For the GameGuardian floating icon to display over other apps, grant "Display over other apps" permission to this launcher app (host). All virtual apps share the host window permission.</string>
+    <string name="gg_overlay_unavailable">Overlay settings screen is not available on this device</string>
+
+    <!-- Script Runner (custom scripts execution) -->
+    <string name="script_runner">Script Runner</string>
+    <string name="script_runner_summary">Import archives/scripts and run them inside the sandbox /data/local/tmp</string>
+    <string name="script_import">Import</string>
+    <string name="script_clear_console">Clear console</string>
+    <string name="script_console_hint">Console ready. Import a .sh/.zip file and tap it to run.\n</string>
+    <string name="script_import_success">Imported into virtual /data/local/tmp</string>
+    <string name="script_import_fail">Import failed</string>
+    <string name="script_running">Running %1$s …\n</string>
+    <string name="script_finished">Process finished with exit code %1$d</string>
+    <string name="script_type_folder">folder • tap to run</string>
+    <string name="script_type_file">file • tap to run</string>
+
+    <!-- Appearance / theme -->
+    <string name="appearance">Appearance</string>
+    <string name="theme_mode">Theme</string>
+    <string name="theme_mode_system">Follow system</string>
+    <string name="theme_mode_light">Light</string>
+    <string name="theme_mode_dark">Dark</string>
+
+    <!-- Log upload (was a hardcoded English literal in setting.xml) -->
+    <string name="send_logs">Send Logs</string>
+    <string name="send_logs_summary">Upload debug logs to developer</string>
+    <string name="send_logs_progress">Sending logs… (check notifications for status)</string>
+
+    <!-- Root Manager header -->
+    <string name="root_manager_header">Switch ON to let a sandboxed app see emulated root (su, uid 0, virtual rootfs). Switch OFF to hide root completely. Restart the app to apply.</string>
+
+    <!-- Accessibility labels. These replaced literal "TODO" contentDescription
+         values, which TalkBack used to read out loud. -->
+    <string name="a11y_app_icon">App icon</string>
+    <string name="a11y_add_app">Add app to sandbox</string>
+    <string name="root_a11y_enabled">%1$s: emulated root visible</string>
+    <string name="root_a11y_hidden">%1$s: root hidden</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Cold-start window background.
+
+    Was hardcoded to @android:color/white, which produced a jarring white flash
+    before a dark MainActivity. Now uses @color/splash_background, which has a
+    values-night counterpart.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/splash_background" />
+        </shape>
+    </item>
+
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@mipmap/ic_launcher" />
+    </item>
+</layer-list>

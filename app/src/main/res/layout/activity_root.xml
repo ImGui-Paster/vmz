@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Root Manager screen.
+
+    Adds an explanatory header: the switch semantics ("on" = the sandboxed app
+    is shown emulated root) are security-relevant and were previously only
+    documented in the confirmation dialog, i.e. after the user had already
+    tapped. Also gives the list a themed background and bottom padding so the
+    last row is not flush against the navigation bar.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/window_background">
+
+    <include
+        android:id="@+id/toolbar_layout"
+        layout="@layout/view_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/space_xl"
+        android:paddingTop="@dimen/space_lg"
+        android:paddingEnd="@dimen/space_xl"
+        android:paddingBottom="@dimen/space_sm"
+        android:text="@string/root_manager_header"
+        android:textAppearance="@style/TextAppearance.BlackBox.ListSubtitle"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_layout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/space_lg"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHeader" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

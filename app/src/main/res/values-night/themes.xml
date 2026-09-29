@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Night-mode theme deltas.
+
+    Almost everything is already handled by values-night/colors.xml, so this
+    file only overrides attributes whose value is a boolean/flag rather than a
+    colour reference - those cannot be expressed through the colour qualifier.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.BlackBox" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorSecondaryVariant">@color/accent_dark</item>
+        <item name="colorOnSecondary">@color/on_accent</item>
+
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/primary_text</item>
+        <item name="colorError">@color/status_error</item>
+
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:colorBackground">@color/window_background</item>
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="android:textColorSecondary">@color/secondary_text</item>
+        <item name="android:textColorTertiary">@color/disabled_text</item>
+        <item name="android:textColorHint">@color/secondary_text</item>
+
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="android:navigationBarColor">@color/window_background</item>
+        <!-- Dark bars need light (white) icons in both cases. -->
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+
+        <item name="actionMenuTextColor">@color/on_primary</item>
+
+        <item name="materialButtonStyle">@style/Widget.BlackBox.Button</item>
+        <item name="switchStyle">@style/Widget.BlackBox.Switch</item>
+        <item name="floatingActionButtonStyle">@style/Widget.BlackBox.Fab</item>
+        <item name="materialCardViewStyle">@style/Widget.BlackBox.Card</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.BlackBox.Dialog</item>
+
+        <item name="android:windowAnimationStyle">@style/Animation.BlackBox.Activity</item>
+
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    </style>
+
+</resources>

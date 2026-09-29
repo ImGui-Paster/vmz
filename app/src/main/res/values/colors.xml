@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Light (day) palette.
+
+    IMPORTANT: every colour defined here MUST have a counterpart in
+    values-night/colors.xml. Layouts reference these names directly, so adding
+    the night qualifier is what makes the whole UI dark-theme aware without
+    touching a single layout file.
+
+    Do NOT hardcode #RRGGBB inside layouts - add a semantic name here instead.
+-->
+<resources>
+
+    <!-- ============================================================
+         Brand / accent
+         ============================================================ -->
+    <color name="primary">#2A2E37</color>
+    <color name="primary_dark">#1C1F26</color>
+    <color name="primary_light">#3C424F</color>
+    <color name="accent">#4C8DFF</color>
+    <color name="accent_dark">#2E6FE0</color>
+
+    <!-- Kept for backwards compatibility with older layouts. -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <!-- ============================================================
+         Surfaces
+         ============================================================ -->
+    <color name="window_background">#FFF5F6F8</color>
+    <color name="surface">#FFFFFFFF</color>
+    <color name="surface_variant">#FFEDEFF3</color>
+    <color name="surface_elevated">#FFFFFFFF</color>
+    <color name="divider">#1F000000</color>
+    <color name="scrim">#66000000</color>
+
+    <!-- ============================================================
+         Text / icons
+         ============================================================ -->
+    <color name="primary_text">#DE000000</color>
+    <color name="secondary_text">#8A000000</color>
+    <color name="disabled_text">#61000000</color>
+    <color name="icon_tint">#8A000000</color>
+    <color name="on_primary">#FFFFFFFF</color>
+    <color name="on_accent">#FFFFFFFF</color>
+
+    <!-- ============================================================
+         Semantic status colours
+         ============================================================ -->
+    <color name="status_success">#2E7D32</color>
+    <color name="status_warning">#EF6C00</color>
+    <color name="status_error">#C62828</color>
+    <color name="status_info">#1565C0</color>
+
+    <!-- ============================================================
+         Root manager: a switched-on row means emulated root is exposed,
+         which is a security-relevant state, so it gets its own accent.
+         ============================================================ -->
+    <color name="root_enabled">#2E7D32</color>
+    <color name="root_hidden">#8A000000</color>
+
+    <!-- Switch thumb/track states. Alpha is baked in rather than expressed via
+         the ColorStateList android:alpha attribute, which is API 23+ while this
+         app supports minSdk 21. -->
+    <color name="switch_thumb_off">#FFFAFAFA</color>
+    <color name="switch_thumb_disabled">#FFBDBDBD</color>
+    <color name="switch_track_on">#732E7D32</color>
+    <color name="switch_track_off">#61000000</color>
+    <color name="switch_track_disabled">#33000000</color>
+
+    <!-- ============================================================
+         Script Runner console (terminal look, intentionally dark in
+         BOTH themes - a light terminal reads badly)
+         ============================================================ -->
+    <color name="console_background">#FF12151A</color>
+    <color name="console_text">#FFB9F6CA</color>
+    <color name="console_error">#FFFF8A80</color>
+
+    <!-- ============================================================
+         Splash / launch screen
+         ============================================================ -->
+    <color name="splash_background">#FFFFFFFF</color>
+
+</resources>

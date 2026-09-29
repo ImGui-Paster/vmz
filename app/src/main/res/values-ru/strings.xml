@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Русские строки для новых модулей. Недостающие строки наследуются из values/strings.xml -->
+
+    <!-- Root Manager (выборочный Root / DenyList) -->
+    <string name="root_manager">Root-менеджер</string>
+    <string name="root_manager_summary">Выберите, каким приложениям показывать эмулированный Root, а каким полностью скрывать (DenyList)</string>
+    <string name="root_enabled_toast">Root включён для приложения (перезапустите его для применения)</string>
+    <string name="root_hidden_toast">Root скрыт для приложения (перезапустите его для применения)</string>
+    <string name="root_item_suffix">%1$s • Пользователь %2$d</string>
+    <string name="root_item_gg_suffix">%1$s • Пользователь %2$d • GameGuardian</string>
+    <string name="root_enable_title">Включить Root</string>
+    <string name="root_enable_hint">Эмулированный Root (su, uid 0, виртуальный rootfs) будет виден приложению «%1$s» внутри песочницы. Реальное рутирование устройства не выполняется.</string>
+    <string name="root_disable_title">Скрыть Root (DenyList)</string>
+    <string name="root_disable_hint">Root будет полностью скрыт от «%1$s»: приложение увидит чистое non-root окружение.</string>
+    <string name="root_list_empty">Виртуальные приложения ещё не установлены</string>
+    <string name="gg_overlay_title">Разрешение на оверлей</string>
+    <string name="gg_overlay_hint">Чтобы плавающий значок GameGuardian отображался поверх других приложений, выдайте этому лаунчеру разрешение «Поверх других окон». Все виртуальные приложения используют оконное разрешение хоста.</string>
+    <string name="gg_overlay_unavailable">Экран настроек оверлея недоступен на этом устройстве</string>
+
+    <!-- Script Runner (запуск кастомных скриптов) -->
+    <string name="script_runner">Запуск скриптов</string>
+    <string name="script_runner_summary">Импорт архивов/скриптов и запуск внутри песочницы в /data/local/tmp</string>
+    <string name="script_import">Импорт</string>
+    <string name="script_clear_console">Очистить консоль</string>
+    <string name="script_console_hint">Консоль готова. Импортируйте файл .sh/.zip и нажмите на него для запуска.\n</string>
+    <string name="script_import_success">Импортировано в виртуальный /data/local/tmp</string>
+    <string name="script_import_fail">Не удалось импортировать</string>
+    <string name="script_running">Запуск %1$s …\n</string>
+    <string name="script_finished">Процесс завершён с кодом %1$d</string>
+    <string name="script_type_folder">папка • нажмите для запуска</string>
+    <string name="script_type_file">файл • нажмите для запуска</string>
+
+    <!-- Оформление / тема -->
+    <string name="appearance">Оформление</string>
+    <string name="theme_mode">Тема</string>
+    <string name="theme_mode_system">Как в системе</string>
+    <string name="theme_mode_light">Светлая</string>
+    <string name="theme_mode_dark">Тёмная</string>
+
+    <!-- Отправка логов -->
+    <string name="send_logs">Отправить логи</string>
+    <string name="send_logs_summary">Загрузить отладочные логи разработчику</string>
+    <string name="send_logs_progress">Отправка логов… (статус — в уведомлениях)</string>
+
+    <!-- Заголовок Root-менеджера -->
+    <string name="root_manager_header">Включите переключатель, чтобы приложение в песочнице видело эмулированный Root (su, uid 0, виртуальный rootfs). Выключите — Root будет полностью скрыт. Перезапустите приложение для применения.</string>
+
+    <!-- Метки доступности (TalkBack) -->
+    <string name="a11y_app_icon">Значок приложения</string>
+    <string name="a11y_add_app">Добавить приложение в песочницу</string>
+    <string name="root_a11y_enabled">%1$s: эмулированный Root виден</string>
+    <string name="root_a11y_hidden">%1$s: Root скрыт</string>
+</resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    App-grid cell.
+
+    Changes:
+      * ripple background so long-press/tap on a clone gives feedback;
+      * icon bumped 48dp -> 52dp and the label given fixed 2-line height, so
+        rows stay aligned whether an app name wraps or not (previously a
+        one-line name and a two-line name produced ragged row heights);
+      * label ellipsizes instead of being clipped mid-glyph.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_grid_item"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/space_lg"
+    android:paddingBottom="@dimen/space_md">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/app_icon_size"
+            android:layout_height="@dimen/app_icon_size"
+            android:contentDescription="@string/a11y_app_icon" />
+
+        <com.othershe.cornerlabelview.CornerLabelView
+            android:id="@+id/cornerLabel"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="top|start"
+            android:visibility="invisible"
+            app:bg_color="@color/accent"
+            app:position="left_top"
+            app:side_length="22dp"
+            app:text="XP"
+            app:text_color="@color/on_accent"
+            app:text_size="8sp" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_sm"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:lines="2"
+        android:paddingStart="@dimen/space_xs"
+        android:paddingEnd="@dimen/space_xs"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/text_caption"
+        tools:text="Example App" />
+
+</LinearLayout>

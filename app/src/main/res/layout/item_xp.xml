@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Xposed module row.
+
+    BUG FIX: the icon had layout_constraintEnd_toStartOf="@id/text_layout"
+    while text_layout had layout_constraintStart_toEndOf="@id/icon" - a
+    circular horizontal dependency. Combined with the icon having no bottom
+    constraint, this produced inconsistent vertical alignment. Rewritten as a
+    plain LinearLayout, which expresses "icon, text, checkbox" directly.
+
+    The tools:text placeholders were also @string/app_name, so the design
+    preview showed "BlackBox" three times.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/space_sm"
+    android:layout_marginTop="@dimen/space_xs"
+    android:layout_marginEnd="@dimen/space_sm"
+    android:layout_marginBottom="@dimen/space_xs"
+    android:background="@drawable/bg_list_item"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/min_touch_target"
+    android:orientation="horizontal"
+    android:padding="@dimen/space_md">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/list_icon_size"
+        android:layout_height="@dimen/list_icon_size"
+        android:contentDescription="@string/a11y_app_icon" />
+
+    <LinearLayout
+        android:id="@+id/text_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_md"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.BlackBox.ListTitle"
+            tools:text="Module name" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xxs"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAppearance="@style/TextAppearance.BlackBox.ListSubtitle"
+            tools:text="Module description goes here" />
+
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/enable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_sm" />
+
+</LinearLayout>

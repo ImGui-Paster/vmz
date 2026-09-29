@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    delay is a FRACTION of the item duration (0.12 * 260ms ~= 31ms stagger).
+    Keeping it small matters: the app grid can hold dozens of clones, and a
+    larger stagger would make the last row appear seconds late.
+-->
+<layoutAnimation xmlns:android="http://schemas.android.com/apk/res/android"
+    android:animation="@anim/item_fall_down"
+    android:delay="12%"
+    android:animationOrder="normal" />

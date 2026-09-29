@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Small state indicator dot. Tinted at runtime (root_enabled / root_hidden)
+    so a row's root state is legible without reading the switch position -
+    important for colour-blind users and for screenshots in bug reports.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/root_hidden" />
+</shape>

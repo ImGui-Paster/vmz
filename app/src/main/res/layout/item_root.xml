@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Root Manager row.
+
+    Changes vs. the original:
+      * added a ripple background (@drawable/bg_list_item) - tapping a row
+        opens a confirmation dialog, and previously there was zero touch
+        feedback;
+      * minHeight raised to 48dp (Material minimum touch target) - two stacked
+        TextViews with 8dp margins fell just under it;
+      * switched to SwitchCompat so the custom thumb/track tints in
+        Widget.BlackBox.Switch apply consistently down to API 21;
+      * a status dot makes the root state readable at a glance without parsing
+        the switch position.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/space_sm"
+    android:layout_marginTop="@dimen/space_xs"
+    android:layout_marginEnd="@dimen/space_sm"
+    android:layout_marginBottom="@dimen/space_xs"
+    android:background="@drawable/bg_list_item"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/min_touch_target"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/space_lg"
+    android:paddingTop="@dimen/space_md"
+    android:paddingEnd="@dimen/space_sm"
+    android:paddingBottom="@dimen/space_md">
+
+    <View
+        android:id="@+id/statusDot"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:layout_marginEnd="@dimen/space_md"
+        android:background="@drawable/dot_status" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.BlackBox.ListTitle"
+            tools:text="App Name" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xxs"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.BlackBox.ListSubtitle"
+            tools:text="com.example.app - User 0" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_sm"
+        android:paddingStart="0dp"
+        app:thumbTint="@color/switch_thumb"
+        app:trackTint="@color/switch_track" />
+</LinearLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--
+        Appearance was previously absent entirely: the app hardcoded a Light
+        theme with forceDarkAllowed=false, so there was no way to get a dark UI.
+        The ListPreference values map 1:1 onto AppCompatDelegate.MODE_NIGHT_*
+        (see values/arrays.xml).
+    -->
+    <PreferenceCategory app:title="@string/appearance">
+
+        <ListPreference
+                app:key="theme_mode"
+                app:title="@string/theme_mode"
+                app:entries="@array/theme_mode_entries"
+                app:entryValues="@array/theme_mode_values"
+                app:defaultValue="-1"
+                app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/other">
+
+        <Preference
+                android:key="gms_manager"
+                android:title="@string/gms_manager"
+                android:summary="@string/jump_gms"/>
+
+        <Preference
+                android:key="root_manager"
+                android:title="@string/root_manager"
+                android:summary="@string/root_manager_summary"/>
+
+        <Preference
+                android:key="script_runner"
+                android:title="@string/script_runner"
+                android:summary="@string/script_runner_summary"/>
+
+        <SwitchPreferenceCompat
+                app:key="root_hide"
+                app:title="@string/hide_root" />
+
+        <SwitchPreferenceCompat
+                app:key="daemon_enable"
+                app:title="@string/daemon_enable" />
+
+        <SwitchPreferenceCompat
+                app:key="use_vpn_network"
+                app:title="@string/use_vpn_network"
+                app:summary="@string/use_vpn_network_summary" />
+
+        <SwitchPreferenceCompat
+                app:key="disable_flag_secure"
+                app:title="@string/disable_flag_secure"
+                app:summary="@string/disable_flag_secure_summary" />
+
+        <Preference
+                android:key="send_logs"
+                android:title="@string/send_logs"
+                android:summary="@string/send_logs_summary" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

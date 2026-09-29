@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    App grid page (one per virtual user).
+
+    BUG FIX: the StateView and the RecyclerView were both children of a
+    ConstraintLayout with match_parent and *no constraints at all*. Unconstrained
+    children in a ConstraintLayout are positioned at (0,0) with undefined
+    behaviour, which is why the grid occasionally rendered under the loading
+    overlay or clipped. A FrameLayout expresses the intended
+    "overlay on top of content" relationship correctly and measures cheaper.
+
+    clipToPadding=false + bottom padding keeps the last icon row scrollable
+    clear of the FAB instead of hidden behind it.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/space_sm"
+        android:paddingTop="@dimen/space_sm"
+        android:paddingEnd="@dimen/space_sm"
+        android:paddingBottom="@dimen/space_xxl"
+        android:scrollbars="none" />
+
+    <com.github.nukc.stateview.StateView
+        android:id="@+id/stateView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>

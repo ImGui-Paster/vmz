@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Activity open: incoming screen slides in from the right while fading up.
+    Durations kept at 220/180ms - long enough to read as motion, short enough
+    that navigating Settings -> Root Manager -> back still feels instant.
+-->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+     android:interpolator="@android:interpolator/fast_out_slow_in">
+    <translate
+        android:fromXDelta="12%p"
+        android:toXDelta="0"
+        android:duration="220" />
+    <alpha
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        android:duration="220" />
+</set>

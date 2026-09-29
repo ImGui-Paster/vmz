@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Switch thumb tint.
+
+    The stock Material switch inherits colorSecondary, which in this app is the
+    blue accent - it read as "selected/primary action" rather than
+    "root exposed". Root Manager rows use the same switch widget, so the ON
+    state is deliberately tinted with the security-relevant green from
+    @color/root_enabled instead.
+
+    NOTE: no android:alpha here on purpose - that ColorStateList attribute is
+    API 23+, and this app supports minSdk 21. Alpha is baked into the hex
+    values in colors.xml / values-night/colors.xml instead.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false" android:color="@color/switch_thumb_disabled" />
+    <item android:state_checked="true" android:color="@color/root_enabled" />
+    <item android:color="@color/switch_thumb_off" />
+</selector>

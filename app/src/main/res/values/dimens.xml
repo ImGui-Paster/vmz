@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Central spacing / sizing scale.
+
+    Layouts previously used ad-hoc 8dp / 16dp / 24dp literals which drifted
+    between screens (e.g. item_root used 8dp margins while item_package used
+    8dp padding, producing visibly different row heights). Naming the scale
+    keeps rhythm consistent and makes a global density change a one-line edit.
+-->
+<resources>
+
+    <!-- 4dp baseline grid -->
+    <dimen name="space_xxs">2dp</dimen>
+    <dimen name="space_xs">4dp</dimen>
+    <dimen name="space_sm">8dp</dimen>
+    <dimen name="space_md">12dp</dimen>
+    <dimen name="space_lg">16dp</dimen>
+    <dimen name="space_xl">24dp</dimen>
+    <dimen name="space_xxl">32dp</dimen>
+
+    <!-- Corner radii -->
+    <dimen name="radius_sm">8dp</dimen>
+    <dimen name="radius_md">12dp</dimen>
+    <dimen name="radius_lg">16dp</dimen>
+
+    <!-- Elevation -->
+    <dimen name="elevation_card">1dp</dimen>
+    <dimen name="elevation_appbar">0dp</dimen>
+    <dimen name="elevation_fab">6dp</dimen>
+
+    <!-- Components -->
+    <dimen name="app_icon_size">52dp</dimen>
+    <dimen name="list_icon_size">44dp</dimen>
+    <!-- Google's minimum recommended touch target. Several rows were below
+         this before (a 2-line TextView with 8dp margins is ~46dp). -->
+    <dimen name="min_touch_target">48dp</dimen>
+    <dimen name="console_height">190dp</dimen>
+    <dimen name="fab_margin">20dp</dimen>
+
+    <!-- Text -->
+    <dimen name="text_title">18sp</dimen>
+    <dimen name="text_body">15sp</dimen>
+    <dimen name="text_caption">12sp</dimen>
+    <dimen name="text_console">12sp</dimen>
+
+</resources>

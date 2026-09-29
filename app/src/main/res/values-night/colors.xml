@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Dark (night) palette - the mirror of values/colors.xml.
+
+    Every name here MUST also exist in values/colors.xml (and vice versa),
+    otherwise the app crashes with a missing-resource error in one mode only,
+    which is painful to catch. See tools/check_night_colors.sh reasoning in
+    the accompanying themes-night file.
+
+    Design notes:
+      * Surfaces use slightly-elevated greys instead of pure black, so that
+        Material elevation shadows and dividers stay visible on OLED panels.
+      * Text uses white with alpha (Material dark-theme emphasis levels)
+        rather than solid greys, so it composites correctly over any surface.
+-->
+<resources>
+
+    <!-- ============================================================
+         Brand / accent
+         ============================================================ -->
+    <color name="primary">#FF1B1E24</color>
+    <color name="primary_dark">#FF12141A</color>
+    <color name="primary_light">#FF2A2E37</color>
+    <!-- Brighter accent: the light-theme blue fails contrast on dark grey. -->
+    <color name="accent">#FF7BAAFF</color>
+    <color name="accent_dark">#FF4C8DFF</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <!-- ============================================================
+         Surfaces
+         ============================================================ -->
+    <color name="window_background">#FF101216</color>
+    <color name="surface">#FF181B21</color>
+    <color name="surface_variant">#FF21252D</color>
+    <color name="surface_elevated">#FF23272F</color>
+    <color name="divider">#1FFFFFFF</color>
+    <color name="scrim">#99000000</color>
+
+    <!-- ============================================================
+         Text / icons
+         ============================================================ -->
+    <color name="primary_text">#DEFFFFFF</color>
+    <color name="secondary_text">#99FFFFFF</color>
+    <color name="disabled_text">#61FFFFFF</color>
+    <color name="icon_tint">#B3FFFFFF</color>
+    <color name="on_primary">#FFFFFFFF</color>
+    <!-- Dark text on the bright accent keeps 4.5:1 contrast. -->
+    <color name="on_accent">#FF10131A</color>
+
+    <!-- ============================================================
+         Semantic status colours (lightened for dark surfaces)
+         ============================================================ -->
+    <color name="status_success">#FF81C784</color>
+    <color name="status_warning">#FFFFB74D</color>
+    <color name="status_error">#FFEF9A9A</color>
+    <color name="status_info">#FF90CAF9</color>
+
+    <!-- ============================================================
+         Root manager
+         ============================================================ -->
+    <color name="root_enabled">#FF81C784</color>
+    <color name="root_hidden">#99FFFFFF</color>
+
+    <!-- Switch thumb/track states (see values/colors.xml for the alpha note). -->
+    <color name="switch_thumb_off">#FF8E939C</color>
+    <color name="switch_thumb_disabled">#FF4A4E57</color>
+    <color name="switch_track_on">#7381C784</color>
+    <color name="switch_track_off">#61FFFFFF</color>
+    <color name="switch_track_disabled">#33FFFFFF</color>
+
+    <!-- ============================================================
+         Console - identical to day on purpose (terminal aesthetic)
+         ============================================================ -->
+    <color name="console_background">#FF12151A</color>
+    <color name="console_text">#FFB9F6CA</color>
+    <color name="console_error">#FFFF8A80</color>
+
+    <!-- ============================================================
+         Splash / launch screen
+         ============================================================ -->
+    <color name="splash_background">#FF101216</color>
+
+</resources>

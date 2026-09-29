@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Script Runner row.
+
+    The original used orientation="vertical" together with gravity="center",
+    which centred both labels horizontally while the 16dp start margin pushed
+    them off-centre - the result looked accidental. Now a normal left-aligned
+    two-line row with ripple feedback, matching item_root / item_gms.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/space_sm"
+    android:layout_marginTop="@dimen/space_xs"
+    android:layout_marginEnd="@dimen/space_sm"
+    android:layout_marginBottom="@dimen/space_xs"
+    android:background="@drawable/bg_list_item"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/min_touch_target"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/space_lg"
+    android:paddingTop="@dimen/space_md"
+    android:paddingEnd="@dimen/space_lg"
+    android:paddingBottom="@dimen/space_md">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="middle"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.BlackBox.ListTitle"
+        tools:text="script.sh" />
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_xxs"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.BlackBox.ListSubtitle"
+        tools:text="file - tap to run" />
+</LinearLayout>

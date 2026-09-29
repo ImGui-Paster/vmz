@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Installed-app picker.
+
+    BUG FIX: stateView and recyclerView were siblings in a *vertical*
+    LinearLayout, both with layout_height="match_parent". In a vertical
+    LinearLayout without weights the first child consumes the whole remaining
+    height, so the RecyclerView was laid out with 0px and the list only
+    appeared because StateView re-parents itself. The two views are meant to
+    overlap (StateView is a loading/empty overlay *on top of* the list), so the
+    content area is now a FrameLayout.
+
+    Also: the search view previously had layout_height="match_parent" inside a
+    wrap_content FrameLayout, which is undefined; it now matches the toolbar.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/window_background"
+    android:orientation="vertical"
+    tools:context=".view.list.ListActivity">
+
+    <FrameLayout
+        android:id="@+id/toolbarContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/view_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.ferfalk.simplesearchview.SimpleSearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/primary"
+            app:type="card" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/space_xs"
+            android:paddingBottom="@dimen/space_sm"
+            android:scrollbars="vertical" />
+
+        <com.github.nukc.stateview.StateView
+            android:id="@+id/stateView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+</LinearLayout>

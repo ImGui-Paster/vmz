@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Script Runner screen.
+
+    Fixes vs. the original:
+      * the hardcoded #101010 console background and #C8E6C9 text are now
+        @color/console_* (still dark in both themes on purpose - a light
+        terminal reads badly - but no longer invisible literals);
+      * the console panel is a rounded surface with a header row and its own
+        "Clear" affordance grouping;
+      * the RecyclerView was constrained between the button panel and the
+        console with height 0dp but no bottom anchor on the console itself in
+        one dimension chain; anchors are now explicit top and bottom so the
+        list cannot collapse to zero height when the console grows.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/window_background">
+
+    <include
+        android:id="@+id/toolbar_layout"
+        layout="@layout/view_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/btnPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/space_md"
+        android:paddingTop="@dimen/space_md"
+        android:paddingEnd="@dimen/space_md"
+        android:paddingBottom="@dimen/space_sm"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_layout">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnImport"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/space_sm"
+            android:layout_weight="1"
+            android:text="@string/script_import" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnClearConsole"
+            style="@style/Widget.BlackBox.Button.Outlined"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_sm"
+            android:layout_weight="1"
+            android:text="@string/script_clear_console" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/space_sm"
+        app:layout_constraintBottom_toTopOf="@id/consoleCard"
+        app:layout_constraintTop_toBottomOf="@id/btnPanel" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/consoleCard"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/console_height"
+        android:layout_marginStart="@dimen/space_md"
+        android:layout_marginEnd="@dimen/space_md"
+        android:layout_marginBottom="@dimen/space_md"
+        app:cardBackgroundColor="@color/console_background"
+        app:cardCornerRadius="@dimen/radius_md"
+        app:cardElevation="@dimen/elevation_card"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ScrollView
+            android:id="@+id/consoleScroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/space_md"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/consoleOutput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textColor="@color/console_text"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/text_console" />
+        </ScrollView>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

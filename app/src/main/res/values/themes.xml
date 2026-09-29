@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        Base application theme.
+
+        Changed from Theme.MaterialComponents.Light.* to the DayNight variant so
+        the app follows the system light/dark setting (and the in-app override in
+        Settings -> Theme). All colour values resolve through values/colors.xml
+        and values-night/colors.xml, so no per-theme duplication is needed here.
+
+        android:forceDarkAllowed stays FALSE on purpose: we now ship a real dark
+        theme, and letting the platform auto-invert on top of it would produce
+        washed-out, double-inverted colours.
+    -->
+    <style name="Theme.BlackBox" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorSecondaryVariant">@color/accent_dark</item>
+        <item name="colorOnSecondary">@color/on_accent</item>
+
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/primary_text</item>
+        <item name="colorError">@color/status_error</item>
+
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:colorBackground">@color/window_background</item>
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="android:textColorSecondary">@color/secondary_text</item>
+        <item name="android:textColorTertiary">@color/disabled_text</item>
+        <item name="android:textColorHint">@color/secondary_text</item>
+
+        <!-- System bars -->
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="android:navigationBarColor">@color/window_background</item>
+        <!-- Light-content bars in day mode; overridden in values-night. -->
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+
+        <item name="actionMenuTextColor">@color/on_primary</item>
+
+        <!-- Component styles -->
+        <item name="materialButtonStyle">@style/Widget.BlackBox.Button</item>
+        <item name="switchStyle">@style/Widget.BlackBox.Switch</item>
+        <item name="floatingActionButtonStyle">@style/Widget.BlackBox.Fab</item>
+        <item name="materialCardViewStyle">@style/Widget.BlackBox.Card</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.BlackBox.Dialog</item>
+
+        <!-- Activity transition animations (see res/anim). -->
+        <item name="android:windowAnimationStyle">@style/Animation.BlackBox.Activity</item>
+
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    </style>
+
+    <!--
+        Toolbar overlay. Previously hardcoded @color/white for icons/text, which
+        is still correct because the toolbar background is the dark brand colour
+        in BOTH themes - but it now goes through the semantic on_primary name.
+    -->
+    <style name="ToolBarColorStyle" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <item name="actionMenuTextColor">@color/on_primary</item>
+        <item name="colorControlNormal">@color/on_primary</item>
+        <item name="android:textColorPrimary">@color/on_primary</item>
+        <item name="android:textColorSecondary">@color/on_primary</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    </style>
+
+    <!--
+        Launch screen. Uses a DayNight parent + themed splash drawable so the
+        cold-start window no longer flashes white before a dark MainActivity.
+    -->
+    <style name="WelcomeTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:statusBarColor">@color/splash_background</item>
+        <item name="android:navigationBarColor">@color/splash_background</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    </style>
+
+    <!-- ================================================================
+         Component styles
+         ================================================================ -->
+
+    <style name="Widget.BlackBox.Button" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">@dimen/radius_md</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:minHeight">@dimen/min_touch_target</item>
+        <item name="backgroundTint">@color/accent</item>
+        <item name="android:textColor">@color/on_accent</item>
+        <item name="rippleColor">@color/on_accent</item>
+    </style>
+
+    <style name="Widget.BlackBox.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="cornerRadius">@dimen/radius_md</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minHeight">@dimen/min_touch_target</item>
+        <item name="strokeColor">@color/accent</item>
+        <item name="android:textColor">@color/accent</item>
+    </style>
+
+    <style name="Widget.BlackBox.Switch" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="thumbTint">@color/switch_thumb</item>
+        <item name="trackTint">@color/switch_track</item>
+        <item name="useMaterialThemeColors">false</item>
+    </style>
+
+    <style name="Widget.BlackBox.Fab" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">@color/accent</item>
+        <item name="tint">@color/on_accent</item>
+        <item name="elevation">@dimen/elevation_fab</item>
+    </style>
+
+    <style name="Widget.BlackBox.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="cardCornerRadius">@dimen/radius_md</item>
+        <item name="cardElevation">@dimen/elevation_card</item>
+        <item name="rippleColor">@color/accent</item>
+    </style>
+
+    <style name="ThemeOverlay.BlackBox.Dialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorSurface">@color/surface_elevated</item>
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <!-- ================================================================
+         Text appearances
+         ================================================================ -->
+
+    <style name="TextAppearance.BlackBox.ListTitle" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.BlackBox.ListSubtitle" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textSize">@dimen/text_caption</item>
+    </style>
+
+    <!-- ================================================================
+         Animations
+         ================================================================ -->
+
+    <style name="Animation.BlackBox.Activity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
+    </style>
+
+</resources>

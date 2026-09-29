@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Shared empty state.
+
+    Fixes:
+      * the illustration is a 480dp vector with layout_width="match_parent",
+        so on small screens it filled the viewport and pushed the caption off
+        screen entirely. Now a bounded 180dp square, centred.
+      * the caption had no colour, so it was near-invisible on the dark theme;
+        it now uses the themed secondary text style.
+      * the root layout had no vertical gravity, so content stuck to the top.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/space_xl">
+
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:alpha="0.85"
+        android:contentDescription="@string/empty_empty"
+        android:src="@drawable/ic_empty" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_lg"
+        android:gravity="center"
+        android:text="@string/empty_empty"
+        android:textAppearance="@style/TextAppearance.BlackBox.ListSubtitle"
+        android:textSize="@dimen/text_body" />
+
+</LinearLayout>
