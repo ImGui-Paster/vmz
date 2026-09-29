@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -26,20 +27,25 @@ jobs:
       - name: Test native module file formats and target isolation
         run: bash tests/run-native-module-tests.sh
 
+      # Android SDK
       - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
+        with:
+          packages: 'platform-tools'
 
+      # Android NDK
       - name: Install required NDK
         run: |
-          yes | sdkmanager --licenses > /dev/null || true
           sdkmanager --install "ndk;29.0.13846066"
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
+      # Build
       - name: Build Debug and Release APKs
         run: ./gradlew assembleDebug assembleRelease --no-daemon --stacktrace
 
+      # Debug APK
       - name: Upload Debug APKs
         uses: actions/upload-artifact@v4
         with:
@@ -47,6 +53,7 @@ jobs:
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: warn
 
+      # Release APK
       - name: Upload Release APKs
         uses: actions/upload-artifact@v4
         with:
@@ -54,6 +61,7 @@ jobs:
           path: app/build/outputs/apk/release/*.apk
           if-no-files-found: warn
 
+      # Check Telegram configuration
       - name: Check Telegram secrets
         id: telegram_check
         run: |
@@ -63,6 +71,7 @@ jobs:
             echo "enabled=false" >> "$GITHUB_OUTPUT"
           fi
 
+      # Send APKs to Telegram
       - name: Send APKs to Telegram
         if: steps.telegram_check.outputs.enabled == 'true'
         env:
@@ -70,10 +79,17 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           COMMIT_MSG=$(git log -1 --pretty=%s)
-          for APK in ./app/build/outputs/apk/debug/*.apk ./app/build/outputs/apk/release/*.apk; do
+
+          for APK in \
+            ./app/build/outputs/apk/debug/*.apk \
+            ./app/build/outputs/apk/release/*.apk
+          do
             [ -f "$APK" ] || continue
-            curl -s -F document=@"$APK" \
-                 -F chat_id="$TELEGRAM_CHAT_ID" \
-                 -F caption="$(basename "$APK") - $COMMIT_MSG" \
-                 "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendDocument" > /dev/null
+
+            curl -s \
+              -F document=@"$APK" \
+              -F chat_id="$TELEGRAM_CHAT_ID" \
+              -F caption="$(basename "$APK") - $COMMIT_MSG" \
+              "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendDocument" \
+              > /dev/null
           done
